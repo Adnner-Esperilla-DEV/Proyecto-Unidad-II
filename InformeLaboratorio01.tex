@@ -11,15 +11,13 @@
 
 
 \begin{document}
-\title{Caratula}
-
 \begin{titlepage}
 \begin{center}
 \large{UNIVERSIDAD PRIVADA DE TACNA}\\
 \vspace*{-0.025in}
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=8cm]{./Imagenes/logo}
+\includegraphics[width=8cm]{./Imagenes/upt}
 \end{center}
 \end{figure}
 \vspace*{0.15in}
@@ -74,25 +72,23 @@ Adnner Esperilla Ruiz		\hfill	(2015050543) \\
 \end{titlepage}
 
 
-
-\title{SQL vs NoSQL}
-
-
+\title{Comparación BD NoSQL}
 \begin{abstract}
 \begin{center}
-\vspace*{0.5in}
 \textbf{Resumen}
 \end{center}
 
-En este artículo aprenderemos conceptos ,metodos y usos sobre las base de datos SQL y NOSQL, y tambien sus diferencias entre ellos. Esto nos permitirá elegir cuall es la mejor la opción más recomendable para nuestro uso ,ya que cuando se da un proyecto se genera la dudo de que gestor de base de datos nos conviene usar .\\
+Se hara la comparacion de una base de datos NoSQL, dando a conocer sus caracteristicas principales y analiazando lo importante que son sus definiciones de los tipos de base de datos NoSQL con el fin de brindar conocimiento con que base de datos pueda trabajar segun sus repesctivas areas ,tambien veremos la creacion de base de datos , inserción y consultas de datos NoSQL mediante la plataforma Docker.\\
 
+\textbf{Palabras clave:}   NoSQL,MySql, Docker.\\
 
 \begin{center}
-
+\textbf{Abstract}
 \end{center}
-
+The comparison of a NoSQL database will be done, making known its main characteristics, and analyzing what your NoSQL database will be in order to provide knowledge about the database in order to work with your reactive areas, we will also see the creation of the database, insertion and queries of NoSQL data through the Docker platform. \\
 
 \end{abstract}
+
 
 
 \maketitle
@@ -100,208 +96,249 @@ En este artículo aprenderemos conceptos ,metodos y usos sobre las base de datos
 %\tableofcontents
 
 \section {Introducción}\label{sec:1}
-Las tecnologías NoSQL han evolucionado para dar respuesta a distintos problemas, y aunque tienen muchos aspectos en común, también son muy diferentes entre sí. Dada la diversidad de tecnologías NoSQL, habitualmente se clasifican en cuatro grupos, por su forma de modelar los dato.
-Son muchas las aplicaciones web que utilizan algún tipo de bases de datos para funcionar. Hasta ahora estábamos acostumbrados a utilizar bases de datos SQL como son MySQL pero desde hace ya algún tiempo han aparecido otras que reciben el nombre de NoSQL  y que han llegado con la intención de hacer frente a las bases relacionales utilizadas por la mayoría de los usuarios.
+
+Ahora en nuestros tiempo que viene ser la era digital  el  manejo de la información se hace más complejo ya que la la cantidad de datos es abrumadora ;ya que por motivos mayores las personas busquen tecnologias que le ayuden a simplificar estos problemas  Las bases de datos relacionales son las mas comunes, pero en los últimos años ha aumentado el interés por las bases de datos NoSQL, que son un conjunto de tecnologias que ayudan el manejo de informacion y su distribucion segun la necesidad de las personas.
+\par Entonces el presente documento hace un analisis y revision  de las tecnologías NoSQL, haciendo posible hacer una comparación facil de comprender ante cualquier usuario con conocimiento minimo en lo que es base de datos.\\
+
+\par El resto de este articulo está organizado de la siguiente manera. En la Sección 2 se muestra los requisitos necesarios  y métodos usados para el desarrollo de este articulo. La Sección 3 se explican los resultados. Y finalmente, las conclusiones están en la Sección 4.
 
 
 
 %-----------------------------------------------------------------
-\section{Objetivos}\label{sec:2}
-\subsection{General:}
--  Poder distinguir las principales caracteristicas  entre  SQL y  NoSQL.
-\subsection{Específicos:}
--  Comparar el concepto de bases de datos SQL Y  NoSQL, además de presentar sus ventajas y compararlos con otros sistemas de bases de datos.
-
-
+\section{Requisitos y Métodos}\label{sec:2}
+\subsection{Materiales}
+	\begin{itemize}
+		\item Tener activado la virtualizacion en el Bios
+		\item Para poder ejecutar contenedores Docker es necesario tener instalado Docker Community Edition (CE) en nuestro equipo
+		\item Windows 10 64bit: Pro, Enterprise o Education, con al menos 4GB de RAM.
+	\end{itemize}
+\subsection{Métodos}
+	\begin{itemize}
+		\item Se utilizo como material artículos y libros relacionados a la base de datos NoSQL , repositorios ,paginas web.
+	\end{itemize}
 %-----------------------------------------------------------------
-\section {Marco Teórico}\label{sec:3}
-\subsection{BASE DE DATOS}
-\par Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y almacenados sistemáticamente para su posterior uso. En este sentido; una biblioteca puede considerarse una base de datos compuesta en su mayoría por documentos y textos impresos en papel e indexados para su consulta. Actualmente, y debido al desarrollo tecnológico de campos como la informática y la electrónica, la mayoría de las bases de datos están en formato digital, siendo este un componente electrónico, por tanto se ha desarrollado y se ofrece un amplio rango de soluciones al problema del almacenamiento de datos.Coniene las siguientes caracteristicas:
+\section{Marco Teórico}\label{sec:3}
+Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y almacenados sistemáticamente para su posterior uso. En este sentido; una biblioteca puede considerarse una base de datos compuesta en su mayoría por documentos y textos impresos en papel e indexados para su consulta. Actualmente, y debido al desarrollo tecnológico de campos como la informática y la electrónica, la mayoría de las bases de datos están en formato digital, siendo este un componente electrónico, por tanto se ha desarrollado y se ofrece un amplio rango de soluciones al problema del almacenamiento de datos.Coniene las siguientes caracteristicas:
 \begin{itemize}
 	\item Se emplean métodos determinados para incluir datos nuevos y para borrar, modificar o recuperar los datos almacenados.
 	\item Los datos son independientes de los programas que los usan.
 	\item Los datos están interrelacionados, sin redundancias innecesarias.
 \end{itemize}
-\subsection {SISTEMA DE GESTIÓN DE BASE DE DATOS}
-Un sistema gestor de base de datos (SGBD) es un conjunto de programas que permiten el almacenamiento, modificación y extracción de la información en una base de datos .Los usuarios pueden acceder a la información usando herramientas específicas de consulta y de generación de informes, o bien mediante aplicaciones al efecto.
-Generalmente se accede a los datos mediante lenguajes de consulta, lenguajes de alto nivel que simplifican la tarea de construir las aplicaciones. También simplifican las consultas y la presentación de la información. Un SGBD permite controlar el acceso a los datos, asegurar su integridad, gestionar el acceso concurrente a ellos, recuperar los datos tras un fallo del sistema y hacer copias de seguridad. Las bases de datos y los sistemas para su gestión son esenciales para cualquier área de negocio, y deben ser gestionados con esmero.
-Es una aplicación comercial que permite construir y gestionar bases de datos, proporcionando al usuario de la Base de Datos las herramientas necesarias para realizar, al menos, las siguientes tareas:
+\subsection{Tipos de base de datos}
+	          \begin{itemize}
+		\item Hay bases de datos relacionales, como MySQL, SQL Server y Oracle. Como su nombre lo indica utilizan el modelo relacional y siempre es mejor usarlas cuando los datos son consistentes y ya tienes algo planificado.
+                     \item También existen las no relacionales, como MongoDB y Redis, conocidas como NO-SQL (Not Only SQL). Estas son más flexibles en cuanto a consistencia de datos y se han convertido en una opción que intenta solucionar algunas limitaciones que tiene el modelo relacional.
+		\item Además hay otras BBDD no tan tradicionales, como las basadas en grafos o aquellas que tienen información cartográfica, que pueden servir, por ejemplo, si estás creando un e-commerce para encontrar relaciones entre los productos y las preferencias de los usuarios.
+	           \end{itemize}
+\subsection{Bases de datos relacional}
+	          \begin{itemize}
+		\item La interfaz estándar de programa de usuario y aplicación a una base de datos relacional es el lenguaje de consultas estructuradas (SQL)
+                     \item Una base de datos relacional es un conjunto de tablas que contienen datos provistos en categorías predefinidas.
+		\item Ejemplo modelo relacional:
+                     \begin{center}
+		\includegraphics[width=9cm]{./Imagenes/1}
+		\end{center}	
+	          \end{itemize}
+\subsection{Modelo NoSQL}
+Las bases de datos NoSQL utilizan una variedad de modelos de datos para acceder y administrar datos, como documentos, gráficos, clave-valor, en-memoria y búsqueda. Estos tipos de bases de datos están optimizados específicamente para aplicaciones que requieren grandes volúmenes de datos, baja latencia y modelos de datos flexibles, lo que se logra mediante la flexibilización de algunas de las restricciones de coherencia de datos en otras bases de datos.\\\\
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/2}
+		\end{center}	
+En una base de datos NoSQL, el registro de un libro generalmente se almacena como un documento JSON. Para cada libro, el elemento, ISBN, Título del libro, Número de edición, Nombre autor y IDAutor se almacenan como atributos en un solo documento. En este modelo, los datos están optimizados para un desarrollo intuitivo y escalabilidad horizontal.\\\\
+as bases de datos NoSQL se adaptan perfectamente a muchas aplicaciones modernas, como dispositivos móviles, web y juegos, que requieren bases de datos flexibles, escalables, de alto rendimiento y altamente funcionales para proporcionar excelentes experiencias de usuario.\\\\
+	           \begin{itemize}
+		\item Flexibilidad:Las bases de datos NoSQL generalmente ofrecen esquemas flexibles que permiten un desarrollo más rápido y más iterativo. 
+                     \item Escalabilidad: las bases de datos NoSQL generalmente están diseñadas para escalar usando clústeres distribuidos de hardware en lugar de escalar añadiendo servidores caros y sólidos. 
+		\item Alto rendimiento:La base de datos NoSQL está optimizada para modelos de datos específicosy patrones de acceso que permiten un mayor rendimiento que el intento de lograr una funcionalidad similar con bases de datos relacionales.
+		\item Altamente funcional:Las bases de datos NoSQL proporcionan API altamente funcionales y tipos de datos que están diseñados específicamente para cada uno de sus respectivos modelos de datos.
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/3}
+		\end{center}	
+	          \end{itemize}
+%-----------------------------------------------------------------
+\section {Resultados}\label{sec:4}
+\subsection{Creacion de base de datos NoSQL con MySql}
+                     \begin{itemize}
+		\item Mysql es una base NoSQL orientada a objetos
+		\item Arquitectura cliente y servidor: MySQL, al igual que cualquier otro sistema de registros de datos, es un programa de registro basado en un sistema entre cliente y servidor.
+		\item ompatibilidad con SQL: SQL es un lenguaje de programación que permite tanto la consulta como la renovación de datos para la gestión de una base en la que se almacena un conjunto de datos.
+                     \item Lenguaje de programación: la base de datos MySQL está escrita en C y C++, dos de los lenguajes de programación más demandados y populares de todo el mundo.
+                     \item Sistemas de almacenamiento: este tipo de bases proporciona sistemas de almacenamiento tanto transaccionales como no transaccionales.
+                     \end{itemize}
+\subsection{Instalar Mysql en Docker}
+     \begin{itemize}
+                     \item Ingresmos nuestra cuenta creada en Docker Hub para iniciar sesión en el aplicativo.Ubicar la aplicación PowerShell, ejecutarla como Administrador. En la ventana de comandos de PowerShell escribir lo siguiente:
+                     \begin{center}
+		\includegraphics[width=5cm]{./Imagenes/8}
+		\end{center}	
+		\item Lo primero que hay que hacer es descargar el contenedor de Mysql con el siguiente comando.
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/14}
+		\end{center}	
+		\item Con esta tenemos nuestro contenedor escuchando
+                     \begin{center}
+		\includegraphics[width=10cm]{./Imagenes/9}
+		\end{center}	
+                     \item Para entrar al contenedor usamos un modo interactivo para asignar un TTY(terminal) y un STDIN abierto
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/15}
+		\end{center}	
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/16}
+		\end{center}	
+                     \item Eliminamos el proceso que corre el contenedor creado.
+                     \begin{center}
+		\includegraphics[width=3cm]{./Imagenes/17}
+		\end{center}	
+                     \item Eliminamos todos los volúmenes ya que Docker crea volúmenes temporales sin pedirte permiso.
+                     \begin{center}
+		\includegraphics[width=3cm]{./Imagenes/18}
+		\end{center}	
+                     \item Creamos un volumen
+                     \begin{center}
+		\includegraphics[width=3cm]{./Imagenes/20}
+		\end{center}	
+                    \item Verificamos que se haya creado el volumen
+                     \begin{center}
+		\includegraphics[width=5cm]{./Imagenes/21}
+		\end{center}
+                     \item Levantamos nuevamente el Docker y agregamos el volumen con la opcion --mount
+                     \begin{center}
+		\includegraphics[width=7cm]{./Imagenes/22}
+		\end{center}
+                     \item Entramos al contenedor de forma interactiva o desde el Workbench y creamos una base de datos
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/23}
+		\end{center}	
+                      \item  Terminamos el proceso 
+                     \begin{center}
+		\includegraphics[width=7cm]{./Imagenes/24}
+		\end{center}	                  
+	          \end{itemize}
+\subsection{Inserción y consulta de datos}
+                     \begin{itemize}
+		\item Inserccion de datos en la tabla  en MySql
+                      \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/26}
+		\end{center}	
+		\item Se hace copia el siguiente codigo para poder usar la consulta en Mysqli de una tabla 
+                     \begin{center}
+		\includegraphics[width=5cm]{./Imagenes/27}
+		\end{center}	
+                  
+	          \end{itemize}
+\subsection{Comparación entre MySQL  y Oracle}
+\textbf{MySQL}
 \begin{itemize}
-	\item Mantener la integridad de la información.
-	\item Proporcionar control de la privacidad y seguridad de los datos en la Base de Datos, permitiendo sólo el acceso a los mismos a los usuarios autorizados.
-	\item Definir las estructuras de los datos.
-	\item Manipular los datos. Es decir, insertar nuevos datos, así como modificar, borrary consultar los datos existentes.
+		\item MySQL es una fuente abierta y MySQL está disponible para su descarga e instalación gratuitas.
+		\item La autenticación del usuario se realiza en MySQL usando solo la ubicación, el nombre de usuario y la contraseña.
+		\item La flexibilidad de crear procedimientos y funciones almacenados utilizando PL / SQL es muy inferior en MySQL.
+                     \item MySQL ofrece muy pocos comandos relacionados con la generación de resultados como informe y la definición de variables. MySQL incluye solo comandos SQL muy simples.
+		\item MySQL no tiene la función de bóveda de auditoría en el servidor..
+		\item MySQL no ofrece herramientas a nivel empresarial.
+                     \item MySQL solo tiene facilidad de bloqueo de tablas.
+		\item MySQL no tiene amplias funciones de almacenamiento como tablespace, sinónimo, paquetes y muchos otros.
+		\item La base de datos MySQL no soporta XML.
+                      \item MySQL solo admite dos tipos de caracteres, a saber, CHAR y VARCHAR.
+		\item MySQL, las tablas temporales solo son visibles dentro de la sesión activa actual. Cuando la sesión expira, las tablas temporales se eliminan automáticamente.
+		\item MySQL solo tiene dos mecanismos de copia de seguridad: mysqlhotcopy y mysqldump.
+  \end{itemize}
+\textbf{Oracle}
+\begin{itemize}
+		\item Solo Oracle Express Edition es gratuito. Pero Oracle Express Edition tiene características muy limitadas en comparación con MySQL
+		\item Oracle proporciona seguridad de base de datos mejorada. La autenticación de usuarios se realiza en Oracle especificando roles globales además de la ubicación, el nombre de usuario y la contraseña
+		\item Oracle proporciona funciones más flexibles para crear procedimientos y funciones almacenados utilizando PL / SQL.
+                     \item Oracle incluye comandos SQL extensos en SQL * Plus, incluidos comandos para generar resultados como informe y definir variables.
+		\item Oracle incluye comandos SQL extensos en SQL * Plus, incluidos comandos para generar resultados como informe y definir variables.
+		\item Oracle proporciona instalaciones de bóveda de auditoría.
+                     \item Oracle ofrece herramientas a nivel empresarial.
+		\item Oracle proporciona la facilidad de bloqueo de fila también.
+		\item Oracle tiene unas características de almacenamiento muy extensas. Oracle admite tablespace, sinónimo, paquetes y todas las demás características.
+                      \item Oracle soporta y usa XML.
+		\item Oracle admite cuatro tipos de datos de caracteres diferentes, a saber: CHAR, VARCHAR2, NCHAR, NVARCHAR2.
+		\item Oracle ofrece muchos mecanismos de copia de seguridad, incluida la copia de seguridad en caliente, copia de seguridad, importación, exportación y muchos otros.
+  \end{itemize}
+\subsection{Documental}
+Una base de datos documental, también llamada una base de datos orientada a documentos u tienda de documentos, es un subconjunto de un tipo de base de datos NoSQL.\\
+
+Algunos almacenes de documentos también pueden ser bases de datos de valores clave. Una base de datos de documentos se utiliza para almacenar, recuperar y administrar datos semiestructurados.\\
+
+A diferencia de las bases de datos relacionales tradicionales, el modelo de datos en una base de datos de documentos no está estructurado en un formato de tabla de filas y columnas.\\
+
+El esquema puede variar, proporcionando mucha más flexibilidad para el modelado de datos que las bases de datos relacionales.\\
+
+Las bases de datos documental almacena cada registro y sus datos asociados en un solo documento. Cada documento contiene datos semiestructurados que pueden ser consultados con el uso de varias herramientas de consulta y análisis del DBMS.
+\begin{center}
+	\includegraphics[width=8cm]{./Imagenes/documental1}
+\end{center}	
+.\\
+\textbf{Fundamentos del formato JSON :}
+\begin{itemize}
+		\item Pares de valores clave o atributos :  Con el formato JSON se almacena en un par de valores clave. A estos pares se les llama a veces atributos. Las claves son cadenas simples y los valores pueden ser de cualquier tipo.
+		\item Incrustación de objetos: Los valores incluidos en el par de valores clave también pueden ser otros objetos JSON, lo que permite crear una jerarquía de objetos. Colocar objetos JSON dentro de otro objeto JSON se denomina modelo de datos incrustados en base de datos documentales.
+		\item Matrices: El formato JSON trabaja con un lenguaje de programación natural en todos los lenguajes de programación y estructuras de datos que son las matrices, por lo cual se admite almacenamiento de matrices como valores contra una clave. 
 \end{itemize}
-
-\subsection{ Structured Query Language}
-\par El lenguaje estructurado de consultas (SQL, Structured Query Language) apoya la creación y mantenimiento de la base de datos relacional y la gestión de los datos dentro de la base de datos. (Fundamentos SQL)
-
-El modelo relacional, el cual se basa principalmente en los principios matemáticos de la teoría de conjuntos y lógica de predicados, apoya la recuperación de datos sencilla, aplica la integración de datos (la precisión y coherencia de los datos), y proporciona una estructura de base de datos independiente de las aplicaciones al acceder a los datos almacenados.
-El modelo relacional tiene como estructura de almacenamiento de los datos las relaciones. La intensión o esquema de una relación consiste en el nombre que hemos dado a la relación y un conjunto de atributos. La extensión de una relación es un conjunto de tuplas. Al trabajar con SQL, esta nomenclatura cambia, como podemos apreciar en la siguiente figura:
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/SQLmodelo.png}
-	\end{center}
-	\end{figure}
-\par Ejemplo:
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/SQLmodelo2.png}
-	\end{center}
-	\end{figure}
-\par Una máquina virtual es un software que emula un ordenador justo como si fuese uno real. Todo esto sucede en una ventana dentro de tu sistema operativo actual como cualquier otro programa que uses.
-\par Cómo funciona:
-	\begin{itemize}
-		\item Cuando creas una máquina virtual para instalar otro sistema operativo tendrás que asignar todos los recursos que necesitas.
-	\end{itemize}
-
-   \par VENTAJAS:
-\\
+\begin{center}
+	\includegraphics[width=9cm]{./Imagenes/documental2}
+\end{center}	
+En la imagen podemos ver un ejemplo de un documento de tipo JSON describe un libro.\cite{imagen}\\\\
+\textbf{Beneficios :}
 \begin{itemize}
-		\item Alta velocidad; las consultas SQL pueden utilizarse para recuperar grandes cantidades de registros de una base de datos de forma rápida y eficiente.
-		\item No necesita codificación; el uso de SQL estándar es más fácil administrar sistemas de bases de datos sin tener que escribir una cantidad sustancial de código.
-		\item Estándares bien definidos
-		\item Portablilidad
-		\item Lenguaje interactivo
-		\item Vista de datos múltiples
-	\end{itemize}
-
-   \par DESVENTAJAS:
-\\                
+		\item Modelado flexible de datos: a medida que las aplicaciones web, móviles, sociales e IoT cambian la naturaleza de los modelos de datos de aplicaciones, las bases de datos de documentos eliminan la necesidad de forzar modelos de datos relacionales para admitir nuevos tipos de modelos de datos de aplicaciones.
+		\item Rendimiento de escritura rápido: a diferencia de las bases de datos relacionales tradicionales, algunas bases de datos de documentos priorizan la disponibilidad de escritura sobre la estricta consistencia de los datos. Esto garantiza que las escrituras siempre serán rápidas, incluso si una falla en una parte del hardware o de la red da como resultado un pequeño retraso en la replicación de datos y la coherencia en todo el entorno.
+		\item Rendimiento rápido de consultas: muchas bases de datos de documentos tienen potentes motores de búsqueda y funciones de indexación que proporcionan capacidades de consulta rápidas y eficientes.
+\end{itemize}
+\subsection{Clave-Valor}
 \begin{itemize}
-		\item Dificultad en la interfaz; la interconexión de una base de datos SQL es mas compleja que agregar algunas líneas de código.
-		\item Más funciones implementadas de forma patentada; algunas bases de datos se dirigen a 
-extensiones propietarias a SQL estándar para garantizar el bloqueo del proveedor.
-	\end{itemize}
 
+                     \item Una base de datos clave-valor es un tipo de base de datos no relacional que utiliza un método simple de clave-valor para almacenar datos. Una base de datos clave-valor almacena datos como un conjunto de pares clave-valor en los que una clave sirve como un identificador único.
+                     \begin{center}
+		\includegraphics[width=6cm]{./Imagenes/30}
+		\end{center}	
+	          \end{itemize}
 
-\subsection{NoSQL}
-\par NoSQL aparece con la llegada de la web 2.0 ya que hasta ese momento sólo subían contenido a la red aquellas empresas que tenían un portal, pero con la llegada de aplicaciones como Facebook, Twitter o Youtube, cualquier usuario podía subir contenido, provocando así un crecimiento exponencial de los datos.
-
-\par Es en este momento cuando empiezan a aparecer los primeros problemas de la gestión de toda esa información almacenada en bases de datos relacionales. En un principio, para solucionar estos problemas de accesibilidad, las empresas optaron por utilizar un mayor número de máquinas pero pronto se dieron cuenta de que esto no solucionaba el problema, además de ser una solución muy cara. La otra solución era la creación de sistemas pensados para un uso específico que con el paso del tiempo han dado lugar a soluciones robustas, apareciendo así el movimiento NoSQL. 
-\par Además de lo comentado anteriormente, las bases de datos NoSQL son sistemas de almacenamiento de información que no cumplen con el esquema entidad–relación. Tampoco utilizan una estructura de datos en forma de tabla donde se van almacenando los datos sino que para el almacenamiento hacen uso de otros formatos como clave–valor, mapeo de columnas o grafos.
-
-
-\par Beneficios:
-	Esta forma de almacenar la información ofrece ciertas ventajas sobre los modelos relacionales. Entre las ventajas más significativas podemos destacar:
-	\begin{itemize}
-		\item Se ejecutan en máquinas con pocos recursos: Estos sistemas, a diferencia de los sistemas basados en SQL, no requieren de apenas computación, por lo que se pueden montar en máquinas de un coste más reducido.
-		\item Escalabilidad horizontal: Para mejorar el rendimiento de estos sistemas simplemente se consigue añadiendo más nodos, con la única operación de indicar al sistema cuáles son los nodos que están disponibles.
-		\item Pueden manejar gran cantidad de datos: Esto es debido a que utiliza una estructura distribuida, en muchos casos mediante tablas Hash.(asocia llaves o claves con valores).\cite{hash}
-		\item No genera cuellos de botella: El principal problema de los sistemas SQL es que necesitan transcribir cada sentencia para poder ser ejecutada, y cada sentencia compleja requiere además de un nivel de ejecución aún más complejo, lo que constituye un punto de entrada en común, que ante muchas peticiones puede ralentizar el sistema. \cite{acens}
-	\end{itemize}
-	\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/hash}
-	\end{center}
-	\end{figure}
-
-           \par TIPOS PARA ALMACENAR INFORMACIÓN EN BASE DE DATOS NOSQL
-\\        
-\\  
-  -  Base de Datos Orientadas a Documentos:
-\\
-           \begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/1}
-	\end{center}
-	\end{figure}
-\\
- Este tipo almacena la información como un documento, generalmente utilizando para ello una estructura simple como JSON o XML y donde se utiliza una clave única para cada registro. Este tipo de implementación permite, además de realizar búsquedas por clave–valor, realizar consultas más avanzadas sobre el contenido del documento.  
-Son las bases de datos NoSQL más versátiles. Se pueden utilizar en gran cantidad de proyectos, incluyendo muchos que tradicionalmente funcionarían sobre bases de datos relacionales. \cite{TiposNoSQL}
-Algunos ejemplos de este tipo son:
-           \begin{itemize}
-		\item MongoDB
-		\item CouchDB
-		\item RaveDB
-		\item SimpleDB (Amazon)
-	\end{itemize}
-
- -  Base de datos key-value:
-\\
-\\
-
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/2}
-	\end{center}
-Son el modelo de base de datos NoSQL más popular, además de ser la más sencilla en cuanto a funcionalidad. En este tipo de sistema, cada elemento está identificado por una llave única, lo que permite la recuperación de la información de forma muy rápida, información que habitualmente está almacenada como un objeto binario (BLOB). Se caracterizan por ser muy eficientes tanto para las lecturas como para las escrituras.  \cite{acens}
-Algunos ejemplos de este tipo son :
-           \begin{itemize}
-		\item Cassandra (Apache)
-		\item Riak
-		\item Redis
-		\item Dynamo (Amazon)
-                     \item Dynamo (Amazon)
-                     \item BigTable (Google)
-	\end{itemize}
--  Base de datos en grafo:
-\\
-\\
-
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/3}
-	\end{center}
-En este tipo de bases de datos, la información se representa como nodos de un grafo y sus relaciones con las aristas del mismo, de manera que se puede hacer uso de la teoría de grafos para recorrerla. Para sacar el máximo rendimiento a este tipo de bases de datos, su estructura debe estar totalmente normalizada, de forma que cada tabla tenga una sola columna y cada relación dos. 
-Este tipo de bases de datos ofrece una navegación más eficiente entre relaciones que en un modelo relacional. \cite{acens}
-Algunos ejemplos de este tipo son:
-           \begin{itemize}
-		\item Neo4j
-		\item Dex
-		\item Sones GraphBD
-		\item AllegroGraph
-	\end{itemize}
--  Base de datos orientadas a objetos:
-\\
-\\
-En este tipo, la información se representa mediante objetos, de la misma forma que son representados en los lenguajes de programación orientada a objetos (POO) como ocurre en JAVA, Cchar o Visual Basic .NET. \cite{acens}
-Algunos ejemplos de este tipo de bases de datos son : 
-
-           \begin{itemize}
-		\item ObjectDB
-		\item ZooDB
-		\item DB4o
-	\end{itemize}
-
-- Nosql es "más adecuado" en estos escenarios por lo menos:
-   \begin{itemize}
-		\item Fácil de escalar simplemente agregando más nodos.
-		\item Consulta sobre conjunto de datos de gran tamaño.En RDMS, podría haber tablas con millones (¿o miles de millones?) De filas, y no desea hacer consultas en esas tablas directamente, ni siquiera mencionar, la mayoría de las veces, las combinaciones de tablas también son necesarias para consultas complejas.
-		\item Cuello de botella en la E / S del disco Si un sitio web necesita enviar resultados a diferentes usuarios en función de la información en tiempo real de los usuarios, probablemente estamos hablando de decenas o cientos de miles de solicitudes de lectura / escritura de SQL por segundo\cite{No}
-	\end{itemize}
-- EJEMPLO:
-Los métodos insertOne(<document>) e insertMany([<doc1>,<doc2>…]) implícitamente crean una collection si no existe e insertan uno o muchos documents según sea el caso. Por si no se dieron cuenta en Mongo no tuvimos que especificar el “id” de nuestro document, si no definimos un campo “id”, Mongo lo crea automáticamente.El método updateMany(<filter>,<update>) actualiza múltiples documents dentro de una collection basado en el filtro que recibe como argumento, pero además puede alterar los documents con operaciones de set (establecer) y unset (des-establecer) para agregar o borrar fields. Como vemos la forma de alterar información en Mongo no se hace a nivel de collections ya que no es una modificación estructural sino de documents (registros de nuestra colección).Con insert nosotros podemos agregar registros a nuestra definición de datos. En Mongo ya vimos la forma de hacer estos inserts con los métodos insertOne() e insertMany().\cite{NoSQL}
-
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/4}
-          \includegraphics[width=7cm]{./Imagenes/5}
-	\end{center}
-\subsection{SQL vs NoSQL}
-
-	\begin{center}
-	\includegraphics[width=7cm]{./Imagenes/tablasqlno}
-	\end{center}
-	\par NoSQL: 
-	\begin{itemize}
-	\item No utilizan estructuras fijas como tablas para el almacenamiento de los datos. Permiten hacer uso de otros tipos de modelos de almacenamiento de información como sistemas de clave–valor, objetos o grafos.
-	\item No suelen permitir operaciones JOIN. Al disponer de un volumen de datos tan extremadamente grande suele resultar deseable evitar los JOIN. Esto se debe a que, cuando la operación no es la búsqueda de una clave, la sobrecarga puede llegar a ser muy costosa. Las soluciones más directas consisten en desnormalizar los datos, o bien realizar el JOIN mediante software, en la capa de aplicación.
-	\item Arquitectura distribuida. Las bases de datos relacionales suelen estar centralizadas en una única máquina o bien en una estructura máster–esclavo, sin embargo en los casos NoSQL la información puede estar compartida en varias máquinas mediante mecanismos de tablas Hash distribuidas.
-	\end{itemize}
-	\cite{comparison}
-	
+\subsection{Grafos}
+\begin{itemize}
+		\item En nuestras base de datos se puede utilizar el modelo de Grafos para ayudar .
+		\item Disponer de más información con agilidad y eficiencia
+		\item Las podemos utilizar por ejemplo para guardar puntos de un camino, relaciones de amigos, familia, o cualquier tipo de  dato que represente alguna relación
+                     \item Consultas más amplias y no demarcadas por tablas
+                     \begin{center}
+		\includegraphics[width=8cm]{./Imagenes/4}
+		\end{center}	
+	          \end{itemize}
+.
+\subsection{Tabular (Column-Store)}
+\begin{itemize}
+		\item Las ventajas de rendimiento en los índices de almacén de columnas son posibles al aprovechar la tecnología de compresión VertiPaq, que permite que grandes cantidades de datos se compriman en la memoria.
+		\item Lo datos son almacenados en columnas.
+		\item En una columna tiene múltiples datos.
+                     \item Un índice de almacén de columnas es más eficiente para este ejemplo porque solo se necesita una página de datos (comprimidos) de menor tamaño para satisfacer la consulta.
+	          \end{itemize} 
+ \begin{center}
+	\includegraphics[width=9cm]{./Imagenes/5}
+\end{center}	
 
 %-----------------------------------------------------------------
-\section{Conclusiones}\label{sec:6}
-
-
-\begin{itemize}
-	\item La selección de la tecnología de almacenamiento adecuada involucra la consideración de numerosos aspectos. Aunque el rendimiento suele ser el factor más importante, es necesario considerar aspectos como la funcionalidad, la facilidad de operación, sencillez de uso, disponibilidad de profesionales con conocimiento, seguridad, y otros factores como la existencia de herramientas y una comunidad que respalde el producto. independiente.
-	\item Cada vez con más frecuencia estamos viendo cómo las tecnologías NoSQL forman parte de la solución en proyectos empresariales, gracias a beneficios como la mejora en la productividad de los equipos de desarrollo, y la posibilidad de llegar antes al mercado y con una considerable reducción del TCO.
-          \item Con la reciente explosión de arquitecturas basadas en microservicios, cada vez más veremos cómo cada servicio encapsula su propia solución de gestión de datos, haciendo uso en la mayoría de las ocasiones de alguna de las tecnologías NoSQL disponibles.
-\end{itemize}
+\section{Discusión y Conclusiones}\label{sec:5}
+	\begin{itemize}
+		\item NoSQL permite el manejo de grandes volúmenes de datos y la posibilidad de tener un sistema distribuido.
+		\item La selección de la tecnología de almacenamiento adecuada involucra la consideración de numerosos aspectos.
+\item Una de las aplicaciones de la teoría de grafos se aplica en el almacenamiento de grandes cantidades de información, como por ejemplo la almacenada en una red social. 
+\item Cada vez con más frecuencia estamos viendo cómo las tecnologías NoSQL forman parte de la solución en proyectos empresariales, gracias a beneficios como la mejora en la productividad de los equipos de desarrollo, y la posibilidad de llegar antes al mercado y con una considerable reducción del TCO.
+	\end{itemize}
 
 
 % Bibliografia.
 %-----------------------------------------------------------------
+
+\textbf{Bibliografia}\\
+https://www.uaeh.edu.mx/docencia/Tesis/icbi/maestria/documentos/Consultas\\       
+http://repositorio.espam.edu.ec/bitstream/42000/74/1/TESIS\\
+http://repositorio.ug.edu.ec/bitstream/redug/24100/1/B-CISC-PTG.1382.Balladares \\
+https://www.paradigmadigital.com/techbiz/breve-introduccion-las-tecnologias-nosql/ \\
+https://smarterworkspaces.kyocera.es/blog/las-bases-datos-documentales/ \\
+https://www.javeriana.edu.co/biblos/tesis/ciencias/tesis572.pdf \\
 
 
 \end{document}
